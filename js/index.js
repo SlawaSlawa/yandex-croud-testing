@@ -33,7 +33,7 @@ scrollToSections({
 
 // participants slider
 
-const getParticipantsSlider = () => {
+const runParticipantsSlider = () => {
 	const participantsSlider = document.querySelector('.participants__slider')
 	const participantsSliderWrap = document.querySelector('.participants__slider-wrap')
 	const participantsSliderItems = document.querySelectorAll('.participants__item')
@@ -92,4 +92,72 @@ const getParticipantsSlider = () => {
 	setInterval(() => {driveSlides('next')}, 4000)
 }
 
-getParticipantsSlider()
+runParticipantsSlider()
+
+// stages slider
+
+const runStagesSlider = () => {
+	const stagesSlider = document.querySelector('.stages__slider')
+	const stagesList = document.querySelector('.stages__list')
+	const stagesListItems = document.querySelectorAll('.stages__list-item')
+	const prevBtn = document.querySelector('.stages__btn--prev')
+	const nextBtn = document.querySelector('.stages__btn--next')
+	const stagesPaginationsEl = document.querySelector('.stages__paginations')
+	const quantity = Math.floor(stagesList.scrollWidth / stagesListItems[0].offsetWidth)
+
+	let stagesCurrentLine = 0
+	let stagesCurrentSlide = 1
+
+	const renderPagination = () => {
+		const quantity = Math.floor(stagesList.scrollWidth / stagesListItems[0].offsetWidth)
+		stagesPaginationsEl.textContent = ''
+
+		for (let i = 0; i < quantity; i++) {
+			const item = document.createElement('div')
+			item.classList.add('stages__paginations-item')
+
+			stagesPaginationsEl.insertAdjacentElement('beforeend',item)
+		}
+	}
+
+	const driveSlides = (where) => {
+		const slideWidth = stagesListItems[0].offsetWidth
+
+		if (where === 'prev') {
+			if (stagesCurrentSlide > 1) {
+				stagesCurrentSlide--
+				stagesCurrentLine -= slideWidth
+				stagesList.style.cssText = `transform: translateX(-${stagesCurrentLine}px)`
+			}
+		}
+	
+		if (where === 'next') {
+			if (stagesCurrentSlide < quantity) {
+				stagesCurrentSlide++
+				stagesCurrentLine += slideWidth
+				stagesList.style.cssText = `transform: translateX(-${stagesCurrentLine}px)`
+			}
+	
+			if (stagesCurrentSlide === stagesListItems.length) {
+				console.log('object');
+				stagesCurrentLine = 0
+				stagesCurrentSlide = 0
+				renderPagination()
+				driveSlides('next')
+			}
+		}
+		renderPagination()
+	}
+
+	prevBtn.addEventListener('click', () => {
+		driveSlides('prev')
+	})
+
+	nextBtn.addEventListener('click', () => {
+		driveSlides('next')
+	})
+
+	renderPagination()
+}
+
+runStagesSlider()

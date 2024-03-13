@@ -97,7 +97,7 @@ body {
 
 .btn  {
     width: 263px;
-    padding: 10px 48px;
+    padding: 13px 48px;
     font-family: 'Golos Text';
     font-weight: 500;
     font-size: 16px;
@@ -177,11 +177,16 @@ body {
 .section-title {
     position: relative;
     margin-top: 0;
+    margin-bottom: 53px;
     max-width: 806px;
     font-weight: 400;
     font-size: 54px;
     line-height: 1.2;
     text-transform: uppercase;
+}
+
+.section-title--participants {
+    margin-bottom: 0;
 }
 
 /* -------------HEADER--------------- */
@@ -213,7 +218,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding-top: 124px;
+    padding-top: 85px;
     padding-bottom: 132px;
 }
 
@@ -222,20 +227,23 @@ body {
 }
 
 .hero__title {
+    margin-bottom: 28px;
     font-weight: 400;
     font-size: 60px;
-    line-height: 110%;
+    line-height: 1.06;
     text-transform: uppercase;
 }
 
 .hero__title-more {
     display: inline-block;
     width: 100%;
+    padding-top: 4px;
+    padding-left: 3px;
     text-align: center;
 }
 
 .hero__description {
-    margin-bottom: 28px;
+    margin-bottom: 39px;
     font-family: "Golos Text", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -252,8 +260,8 @@ body {
 /* ------------SLOGAN------------ */
 
 .slogan {
-    padding-top: 106px;
-    padding-bottom: 92px;
+    padding-top: 78px;
+    padding-bottom: 32px;
 }
 
 .slogan__wrapper {
@@ -273,6 +281,10 @@ body {
     font-size: 36px;
     line-height: 135%;
     text-transform: uppercase;
+}
+
+.info-title--info {
+    margin-bottom: 44px;
 }
 
 .info-title__bright {
@@ -295,7 +307,7 @@ body {
 /* ----------INFO-------------- */
 
 .info {
-    padding-bottom: 200px;
+    padding-bottom: 182px;
 }
 
 .info__wrapper {
@@ -313,6 +325,7 @@ body {
 }
 
 .info__table {
+    width: 100%;
     font-family: 'Golos Text', sans-serif;
     font-size: 20px;
     line-height: 1.2;
@@ -320,7 +333,9 @@ body {
 }
 
 .info__table-title {
+    width: 305px;
     padding: 16px;
+    padding-left: 0;
     font-weight: 400;
     opacity: .7;
     text-align: left;
@@ -334,11 +349,16 @@ body {
     border-bottom: 2px solid #D0D0D0;
 }
 
+.info__table--bn {
+    border-bottom: none;
+}
+
 .info__table-sale {
     text-decoration-color: #F54932;
 }
 
 .info__text {
+    margin-top: 23px;
     font-family: 'Golos Text', sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -350,11 +370,12 @@ body {
 
 .stages {
     position: relative;
-    padding-bottom: 200px;
+    padding-bottom: 184px;
 }
 
 .stages__list {
     display: grid;
+    grid-template-columns: repeat(3,1fr);
     grid-template-areas: 
         'one  two   three'
         'four five  three'
@@ -364,6 +385,7 @@ body {
     padding: 0;
     list-style-type: none; 
 	counter-reset: num;
+    transition: .3s ease;
 }
 
 .stages__list-item {
@@ -439,9 +461,9 @@ body {
 
 .stages__decor {
     position: absolute;
-    right: -40px;
-    bottom: -20px;
-    max-width: 360px;
+    right: -62px;
+    bottom: -6px;
+    max-width: 400px;
 }
 
 .stages__decor-img {
@@ -451,7 +473,7 @@ body {
 
 .stages-title-desc {
     position: absolute;
-    right: 124px;
+    right: 138px;
     bottom: 12px;
     width: 367px;
     font-family: "Golos Text", sans-serif;
@@ -503,7 +525,7 @@ body {
 /* ----------PARTICIPANTS------------ */
 
 .participants {
-    padding-bottom: 140px;
+    padding-bottom: 80px;
 }
 
 .participants-wrapper {
@@ -513,17 +535,18 @@ body {
 
 .participants__slider-wrap {
     display: flex;
+    gap: 20px;
     transition: .3s ease;
 }
 
 .participants__item {
-    padding: 84px 40px;
+    padding: 61px 40px;
     width: 394px;
     flex-shrink: 0;
 }
 
 .participants__img-wrap {
-    margin-bottom: 28px;
+    margin-bottom: 31px;
     width: 100%;
     border-radius: 50%;
     overflow: hidden;
@@ -558,7 +581,7 @@ body {
 .btn-more {
     display: block;
     margin: 0 auto;
-    padding: 10px 12px;
+    padding: 6px 12px;
     font-family: "Golos Text", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -578,8 +601,8 @@ body {
 
 .participants__buttons {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 11px;
+    right: 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -624,7 +647,7 @@ body {
 /* -----------FOOTER----------- */
 
 .footer {
-    padding-top: 40px;
+    padding-top: 25px;
     padding-bottom: 72px;
     background-color: #E9DED4;
 }
@@ -891,9 +914,11 @@ body {
     .stages__decor-mobile {
         display: block;
     }
+    .stages__slider {
+        overflow: hidden;
+    }
     .stages__list {
         width: 100%;
-        overflow: hidden;
         grid-gap: 0;
         grid-template-areas: 
             'one  three four six seven'
