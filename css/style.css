@@ -477,15 +477,15 @@ body {
 
 .stages-title-desc {
     position: absolute;
-    right: 138px;
+    right: 186px;
     bottom: 12px;
-    width: 367px;
+    width: 320px;
     font-family: "Golos Text", sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
     color: #3057a2;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 .stages__buttons {
@@ -861,17 +861,25 @@ body {
 
 
 @media (max-width: 686px) {
+    .logo {
+        width: 213px;
+        height: 32px;
+    }
     .hero {
-        padding-top: 90px;
-        padding-bottom: 291px;
+        padding-top: 101px;
+        padding-bottom: 332px;
         background-image: url(../images/hero-mobile-bg.png);
     }
     .hero__title {
         margin-top: 0;
         margin-bottom: 24px;
     }
+    .hero__title-more span {
+        padding-left: 0;
+    }
     .hero__description {
         margin-bottom: 32px;
+        max-width: 335px;
     }
     .hero__btns {
         flex-direction: column;
@@ -879,44 +887,73 @@ body {
     }
     .btn {
         width: 100%;
-        padding: 18px 38px;
+        padding: 11px 38px;
     }
     .ticker__list {
+        margin-top: -40px;
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+    .slogan {
+        padding-top: 26px;
+        padding-bottom: 18px;
     }
     .slogan__img-wrap {
         max-width: 100%;
     }
     .info {
-        padding-bottom: 110px;
+        padding-bottom: 102px;
+    }
+    .info-title--info {
+        margin-top: 13px;
+        margin-bottom: 30px;
     }
     .info__table-row {
         display: flex;
         flex-direction: column;
     }
+    .info__table-row--row {
+        flex-direction: row;
+    }
+    .info__table-row--row .info__table-title {
+        border-bottom: 2px solid #D0D0D0;
+    }
+    .info__table-row--row .info__table-text {
+        width: 111%;
+    }
     .info__table-title {
         border-bottom: none;
         padding: 0;
+        padding-top: 14px;
     }
     .info__table-text {
+        padding-top: 12px;
         padding-left: 0;
         border-left: none;
     }
     .info__table-row:last-child .info__table-text {
         border-bottom: none;
     }
+    .info__text {
+        margin-top: 27px;
+    }
     .section-title {
-        margin-bottom: 148px;
+        margin-bottom: 131px;
+    }
+    .stages-title-desc {
+        margin-top: 14px;
     }
     .stages {
-        padding-bottom: 184px;
+        padding-bottom: 169px;
     }
     .stages__decor {
         display: none;
     }
     .stages__decor-mobile {
         display: block;
+        max-width: 341px;
+        top: 182px;
+        left: 28px;
     }
     .stages__slider {
         overflow: hidden;
@@ -930,21 +967,55 @@ body {
         ;
         grid-template-columns: repeat(5, 100%);
     }
+    .stages__list-item {
+        padding-top: 64px;
+    }
+    .stages__list-item:nth-child(2), .stages__list-item:nth-child(5) {
+        padding-top: 9px;
+        padding-bottom: 35px;
+    }
+    .stages__list-item:nth-child(2):before, .stages__list-item:nth-child(5):before {
+        top: 7px;
+    }
+    .stages__list-item:before { 
+        top: 61px;
+    }
     .stages__buttons {
         display: flex;
+        bottom: 120px;
+    }
+    .stages__btn {
+        width: 36px;
+        height: 36px;
     }
     .section-title--participants {
         margin-bottom: 40px;
     }
     .participants__item {
         width: 100%;
+        padding-top: 0;
         padding-bottom: 176px;
+    }
+    .participants__img-wrap {
+        margin: 0 auto;
+        width: 244px;
+    }
+    .participants__item-title {
+        margin-bottom: 8px;
     }
     .participants__buttons {
         top: auto;
-        bottom: 76px;
+        bottom: 100px;
         left: 50%;
         transform: translateX(-50%);
+        width: 129px;
+    }
+    .participants__btn {
+        width: 36px;
+        height: 36px;
+    }
+    .btn-more {
+        padding-bottom: 8px;
     }
     .footer {
         padding-bottom: 60px;

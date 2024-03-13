@@ -92,7 +92,7 @@ const runParticipantsSlider = () => {
 	setInterval(() => {driveSlides('next')}, 4000)
 }
 
-runParticipantsSlider()
+// runParticipantsSlider()
 
 // stages slider
 
@@ -160,4 +160,4 @@ const runStagesSlider = () => {
 	renderPagination()
 }
 
-runStagesSlider()
+// runStagesSlider()
