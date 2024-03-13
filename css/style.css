@@ -242,6 +242,10 @@ body {
     text-align: center;
 }
 
+.hero__title-more span {
+    padding-left: 31px;
+}
+
 .hero__description {
     margin-bottom: 39px;
     font-family: "Golos Text", sans-serif;
