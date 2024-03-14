@@ -51,13 +51,13 @@ const runParticipantsSlider = () => {
 	}
 	
 	const driveSlides = (where) => {
-		const slideWidth = participantsSliderItems[0].offsetWidth
+		const slideWidth = participantsSliderItems[0].offsetWidth + 20
 	
 		if (where === 'prev') {
 			if (participantsCurrentSlide > 1) {
 				participantsCurrentSlide--
 				participantsCurrentLine -= slideWidth
-				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine + 20}px)`
+				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine}px)`
 			}
 		}
 	
@@ -65,7 +65,7 @@ const runParticipantsSlider = () => {
 			if (participantsCurrentSlide < participantsSliderItems.length) {
 				participantsCurrentSlide++
 				participantsCurrentLine += slideWidth
-				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine + 20}px)`
+				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine}px)`
 			}
 	
 			if (participantsCurrentSlide === participantsSliderItems.length) {
