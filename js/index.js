@@ -57,7 +57,7 @@ const runParticipantsSlider = () => {
 			if (participantsCurrentSlide > 1) {
 				participantsCurrentSlide--
 				participantsCurrentLine -= slideWidth
-				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine}px)`
+				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine + 20}px)`
 			}
 		}
 	
@@ -65,7 +65,7 @@ const runParticipantsSlider = () => {
 			if (participantsCurrentSlide < participantsSliderItems.length) {
 				participantsCurrentSlide++
 				participantsCurrentLine += slideWidth
-				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine}px)`
+				participantsSliderWrap.style.cssText = `transform: translateX(-${participantsCurrentLine + 20}px)`
 			}
 	
 			if (participantsCurrentSlide === participantsSliderItems.length) {
@@ -105,8 +105,10 @@ const runStagesSlider = () => {
 	const stagesPaginationsEl = document.querySelector('.stages__paginations')
 	const quantity = Math.floor(stagesList.scrollWidth / stagesListItems[0].offsetWidth)
 
+	stagesPaginationsEl.textContent = ''
+
 	let stagesCurrentLine = 0
-	let stagesCurrentSlide = 1
+	let stagesCurrentSlide = 0
 
 	const renderPagination = () => {
 		const quantity = Math.floor(stagesList.scrollWidth / stagesListItems[0].offsetWidth)
@@ -118,28 +120,45 @@ const runStagesSlider = () => {
 
 			stagesPaginationsEl.insertAdjacentElement('beforeend',item)
 		}
+
+		const paginationsItems = document.querySelectorAll('.stages__paginations-item')
+
+		for (let i = 0 ; i < paginationsItems.length; i++) {
+			paginationsItems[i].classList.remove('stages__paginations-item--active')
+			if (i === stagesCurrentSlide) {
+				console.log(i, stagesCurrentSlide);
+				paginationsItems[i].classList.add('stages__paginations-item--active')
+			}
+		}
+
 	}
 
 	const driveSlides = (where) => {
 		const slideWidth = stagesListItems[0].offsetWidth
+		prevBtn.classList.remove('btn--disabled')
+		nextBtn.classList.remove('btn--disabled')
 
 		if (where === 'prev') {
-			if (stagesCurrentSlide > 1) {
+			if (stagesCurrentSlide > 0) {
 				stagesCurrentSlide--
 				stagesCurrentLine -= slideWidth
 				stagesList.style.cssText = `transform: translateX(-${stagesCurrentLine}px)`
+			} else {
+				prevBtn.classList.add('btn--disabled')
+				stagesCurrentSlide = 0
 			}
 		}
 	
 		if (where === 'next') {
-			if (stagesCurrentSlide < quantity) {
+			if (stagesCurrentSlide < quantity - 1) {
 				stagesCurrentSlide++
 				stagesCurrentLine += slideWidth
 				stagesList.style.cssText = `transform: translateX(-${stagesCurrentLine}px)`
+			} else {
+				nextBtn.classList.add('btn--disabled')
 			}
 	
 			if (stagesCurrentSlide === stagesListItems.length) {
-				console.log('object');
 				stagesCurrentLine = 0
 				stagesCurrentSlide = 0
 				renderPagination()
@@ -157,6 +176,7 @@ const runStagesSlider = () => {
 		driveSlides('next')
 	})
 
+	driveSlides('prev')
 	renderPagination()
 }
 

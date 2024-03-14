@@ -127,6 +127,10 @@ body {
     border-color: transparent;
 }
 
+.btn--disabled {
+    background-color: #D6D6D6!important;
+}
+
 .ticker {
     background-color: #F54932;
 }
