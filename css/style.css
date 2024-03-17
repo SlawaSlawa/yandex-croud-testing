@@ -89,6 +89,7 @@ body {
 }
 
 .container {
+    position: relative;
     max-width: 1262px;
     margin: 0 auto;
     padding-right: 20px;
@@ -268,14 +269,13 @@ body {
 /* ------------SLOGAN------------ */
 
 .slogan {
-    padding-top: 78px;
-    padding-bottom: 32px;
+    position: relative;
+    padding-top: 109px;
+    padding-bottom: 62px;
 }
 
 .slogan__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 764px;
 }
 
 .slogan__min-screen {
@@ -283,7 +283,6 @@ body {
 }
 
 .info-title {
-    max-width: 764px;
     font-family: "Merriweather", serif;
     font-weight: 400;
     font-size: 36px;
@@ -293,6 +292,16 @@ body {
 
 .info-title--info {
     margin-bottom: 44px;
+}
+
+.info-title--first {
+    display: inline;
+    margin-bottom: 0;
+}
+
+.info-title--second {
+    display: inline;
+    margin-top: 0;
 }
 
 .info-title__bright {
@@ -305,11 +314,18 @@ body {
     height: 250px;
     overflow: hidden;
     border-radius: 50%;
+    position: absolute;
+    top: -29px;
+    right: 20px;
 }
 
 .slogan__img {
     width: 100%;
     height: 100%;
+}
+
+.info__description {
+    max-width: 704px;
 }
 
 /* ----------INFO-------------- */
@@ -543,7 +559,6 @@ body {
 
 .participants__slider-wrap {
     display: flex;
-    /* gap: 20px; */
     transition: .3s ease;
 }
 
@@ -693,6 +708,9 @@ body {
         padding-top: 100px;
         padding-bottom: 88px;
     }
+    .slogan__wrapper {
+        max-width: 60%;
+    }
     .slogan__img-wrap {
         width: 380px;
         height: 240px;
@@ -753,9 +771,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .slogan__wrapper {
-        display: none;
-    }
     .slogan__min-screen {
         display: block;
     }
@@ -778,6 +793,20 @@ body {
         margin-bottom: 64px;
         text-align: left;
     }
+    .info-title--first, .info-title--second  {
+        display: block;
+    }
+    .slogan__img-wrap {
+        top: 174px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .info__description {
+        overflow: hidden;
+    }
+    .info-title--first {
+        margin-bottom: 350px;
+    }
     .slogan {
         padding-top: 40px;
         padding-bottom: 40px;
@@ -797,6 +826,9 @@ body {
     .stages-title-desc {
         right: 0;
         font-size: 16px;
+    }
+    .stages__list {
+        grid-template-columns: repeat(2,1fr);
     }
     .stages__list-item {
         font-size: 18px;
@@ -895,7 +927,7 @@ body {
         padding: 11px 38px;
     }
     .ticker__list {
-        margin-top: -40px;
+        margin-top: -38px;
         padding-top: 10px;
         padding-bottom: 10px;
     }
@@ -904,7 +936,7 @@ body {
         padding-bottom: 18px;
     }
     .slogan__img-wrap {
-        max-width: 100%;
+        max-width: 335px;
     }
     .info {
         padding-bottom: 102px;
@@ -931,10 +963,19 @@ body {
         padding: 0;
         padding-top: 14px;
     }
+    .slogan__wrapper {
+        max-width: 100%;
+    }
+    .info-title--first, .info-title--sceond {
+        max-width: 100%;
+    }
     .info__table-text {
         padding-top: 12px;
         padding-left: 0;
         border-left: none;
+    }
+    .info-title--first {
+        margin-bottom: 262px;
     }
     .info__table-row:last-child .info__table-text {
         border-bottom: none;
@@ -987,7 +1028,7 @@ body {
     }
     .stages__buttons {
         display: flex;
-        bottom: 120px;
+        bottom: -49px;
     }
     .stages__btn {
         width: 36px;
@@ -1030,6 +1071,9 @@ body {
 @media (max-width: 360px) {
     .section-title {
         font-size: 30px;
+    }
+    .slogan__img-wrap {
+        top: 207px;
     }
 }
 
