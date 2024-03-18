@@ -69,7 +69,6 @@ const runParticipantsSlider = () => {
 			}
 	
 			if (participantsCurrentSlide === participantsSliderItems.length) {
-				console.log('object');
 				participantsCurrentLine = 0
 				participantsCurrentSlide = 0
 				renderInfo()
@@ -126,7 +125,6 @@ const runStagesSlider = () => {
 		for (let i = 0 ; i < paginationsItems.length; i++) {
 			paginationsItems[i].classList.remove('stages__paginations-item--active')
 			if (i === stagesCurrentSlide) {
-				console.log(i, stagesCurrentSlide);
 				paginationsItems[i].classList.add('stages__paginations-item--active')
 			}
 		}
